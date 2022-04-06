@@ -11,11 +11,11 @@
 #include <igl/opengl/glfw/Viewer.h>
 #include <igl/opengl/glfw/imgui/ImGuizmoPlugin.h>
 #include <GLFW/glfw3.h>
-#include <imgui/imgui.h>
-#include <imgui/imgui_internal.h>
+#include <imgui.h>
+#include <imgui_internal.h>
 #include <imgui_impl_glfw.h>
 #include <imgui_impl_opengl3.h>
-#include <imguizmo/ImGuizmo.h>
+#include <ImGuizmo.h>
 #include "swept_volume.h"
 #include "read_transformation.h"
 #include <string>
@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
     std::vector<Eigen::MatrixXd> strobo_V_list;
     int strobo_ind = 0;
     std::vector<Eigen::Matrix4d> Transformations;
-    std::string input = "data/bunny.obj";
+    std::string input = std::string(SOURCE_DIR) + "/data/bunny.obj";
     double eps = 0.02;
     int num_seeds = 100;
     int argindex = 0;

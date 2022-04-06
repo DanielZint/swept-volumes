@@ -1,3 +1,25 @@
+# What is this fork?
+I had some issues with compiling the code on Windows. Therefore, I created this fork that contains minor changes to compile it with vcpkg.
+## Installation
+* Install [vcpkg](https://github.com/microsoft/vcpkg).
+* Install the following libraries with vcpkg.
+  * libigl
+  * libigl\[opengl\]
+  * libigl\[imgui\]
+  * imguizmo
+* Use CMake to configure and generate the code. Consider that you have to *specify toolchain file for cross compiling*. For more information on how to use vcpkg, check their [github page](https://github.com/microsoft/vcpkg).
+* Compile the code. Here, it might happen that you get errors like *include \<imgui/imgui.h\> not found*. This is due to the installation with vcpkg. You need to remove the folder from the according lines, so from
+  ```
+  #include <imgui/imgui.h>
+  ```
+  change to 
+  ```
+  #include <imgui.h>
+  ```
+  Do that for all the errors of that type. In the end, the code should compile without further errors. At least it did that for me.
+---
+---
+
 # Swept Volumes via Spacetime Numerical Continuation
 Public code release for ["Swept Volumes via Spacetime Numerical Continuation"](http://dgp.toronto.edu/~sgsellan/pdf/swept-volumes.pdf), presented at SIGGRAPH 2021 and authored by [Silvia Sellán](http://dgp.toronto.edu/~sgsellan/), [Noam Aigerman](https://noamaig.github.io) and [Alec Jacobson](http://www.cs.toronto.edu/~jacobson/). Please note that while this implementation of our method is hereby released under MIT License, the method itself is pending a US patent filed in 2021 by Adobe Inc.
 
